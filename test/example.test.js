@@ -11,14 +11,14 @@ test('I expect the function to render the same as the hard-coded example.', (exp
 
     const bakedItem = {
         id: 'cookie',
-        name: 'cookie',
-        image: 'assets.chocolate-chip.jpeg',
+        name: 'Chocolate Chip Cookie',
+        image: '../assets/chocolate-chip.jpeg',
         description: 'Chocolate Chip Cookie',
         category: 'chocolate',
         price: 2
     };
 
-    const expected = '<li id="cookie" name="cookie"><img src="../assets/chocolate-chip.jpeg" alt="picture of a cookie"><p class="description">Chocolate Chip Cookie</p><p class="price">$2.00</p><button value="cookie">Add to Cart</button></li>';
+    const expected = '<li id="cookie"><p class="name">Chocolate Chip Cookie</p><img src="../assets/chocolate-chip.jpeg"><p class="description">Chocolate Chip Cookie</p><p class="price">$2.00</p><button value="cookie">Add to Cart</button></li>';
     
     //Act 
     // Call the function you're testing and set the result to a const
