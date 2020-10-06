@@ -2,7 +2,7 @@ export const bakery = [
     {
         id: 'cookie',
         name: 'Chocolate Chip Cookie',
-        image: '../assets/chocolate-chip.jpeg',
+        image: '../assets/chocolate-chip.png',
         description: 'Thin, Crisp, and Crunchy with no apologies',
         category: 'chocolate',
         price: 2
@@ -10,7 +10,7 @@ export const bakery = [
     {
         id: 'pie',
         name: 'Marion Berry Cream Pie Slice',
-        image: '../assets/pie.png',
+        image: '../assets/pie.jpg',
         description: 'Delicious berry pie filling over our cream cheese cream pie base',
         category: 'berry',
         price: 3.5
@@ -18,7 +18,7 @@ export const bakery = [
     {
         id: 'cupcake',
         name: 'Cupcake',
-        image: '../assets/cupcake.jpg',
+        image: '../assets/cupcake.png',
         description: 'Chocolate frosting on yellow cake',
         category: 'chocolate',
         price: 2
@@ -26,7 +26,7 @@ export const bakery = [
     {
         id: 'cake',
         name: 'Chocolate Cake Slice',
-        image: '../assets/chocolate-cake.jpg',
+        image: '../assets/chocolate-cake.png',
         description: 'We double down on double chocolate',
         category: 'chocolate',
         price: 3.5
@@ -34,7 +34,7 @@ export const bakery = [
     {
         id: 'scone',
         name: 'Blueberry Scone',
-        image: '../assets/blueberry-scone.jpg',
+        image: '../assets/blueberry-scone.png',
         description: 'Solid and Flaky - NOT a muffin...',
         category: 'berry',
         price: 2.5
