@@ -28,6 +28,21 @@ body {
     background-color: var(--color2);
 }
 
+li img {
+    height: 200px;
+    width: 200px;
+    margin-left: 45px;
+    border-radius: 10px;
+}
+
+li {
+    width: 300px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -91,35 +106,20 @@ content {
 }
 
 p {
-    margin: var(--gutter);
+    margin-left: 2px;
+    padding: 0;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+button {
+    margin-left: 2px;
+    margin-bottom: 2px;
 }
   
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    height: var(--footer-height);
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
-    box-shadow: var(--shadow);
+.name {
+    font-size: 24;
 }
-  
-  @keyframes pulse {
-    20% {
-      transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
-    }
-
-    40% {
-        transform: rotate3d(10, 10, -10, 50deg) scale(1);
-    }
-
-    60% {
-        transform: rotate3d(-10, 10, 10, 50deg) scale(1.2);
-      }
-
-    80% {
-        transform: rotate3d(10, 10, 10, 50deg) scale(1);
-    }
-
-  }
