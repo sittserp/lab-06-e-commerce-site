@@ -35,3 +35,8 @@ export function findById(someArray, someId) {
         }
     }
 }
+
+export function calcLineItem(price, quantity){
+    return price * quantity;
+}
+

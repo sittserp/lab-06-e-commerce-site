@@ -1,8 +1,8 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
-import { renderBakery, findById } from '../utils.js';
-import { bakery } from '../bakery.js'
+import { renderBakery, findById, calcLineItem } from '../utils.js';
+import { bakery } from '../bakery.js';
 
 const test = QUnit.test;
 
@@ -53,4 +53,21 @@ test('I expect the function to takes an array and an id, and returns the first i
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
+});
+
+test('I expect the function to take the quantity and amount and return the total price', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const price = 2;
+    const quantity = 2;
+
+    const expected = 4;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = calcLineItem(price, quantity);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
 });
