@@ -1,4 +1,4 @@
-import { cartItems } from "./cart/cart-items.js";
+import { cartItems } from './cart/cart-items.js';
 import { bakery } from './bakery.js';
 
 export function renderBakery(bakedItem) {
