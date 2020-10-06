@@ -1,3 +1,6 @@
+import { cartItems } from "./cart/cart-items.js";
+import { bakery } from './bakery.js';
+
 export function renderBakery(bakedItem) {
     const li = document.createElement('li');
     const name = document.createElement('p');
@@ -40,3 +43,26 @@ export function calcLineItem(price, quantity){
     return price * quantity;
 }
 
+export function renderCart(someID) {
+
+    const cartItem = findById(bakery, someID);
+    const cartQuantity = findById(cartItems, someID);
+
+    const tr = document.createElement('tr');
+    const name = document.createElement('td');
+    const quantity = document.createElement('td');
+    const price = document.createElement('td');
+    const subtotal = document.createElement('td');
+    
+    name.textContent = cartItem.name;
+    quantity.textContent = cartQuantity.quantity;
+    price.textContent = `$${cartItem.price.toFixed(2)}`; 
+    subtotal.textContent = `$${calcLineItem(cartItem.price, cartQuantity.quantity).toFixed(2)}`;
+
+    tr.append(name);
+    tr.append(quantity);
+    tr.append(price);
+    tr.append(subtotal);
+
+    return tr;
+}

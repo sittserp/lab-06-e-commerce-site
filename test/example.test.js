@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
-import { renderBakery, findById, calcLineItem } from '../utils.js';
+import { renderBakery, findById, calcLineItem, renderCart } from '../utils.js';
 import { bakery } from '../bakery.js';
 
 const test = QUnit.test;
@@ -70,4 +70,24 @@ test('I expect the function to take the quantity and amount and return the total
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
+});
+
+test('TABLE: I expect the function to render the same table as the hard-coded example.', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+
+    const cartLineItem = {
+        id: 'cookie',
+        quantity: 2
+    };
+
+    const expected = '<tr><td>Chocolate Chip Cookie</td><td>4</td><td>$2.00</td><td>$8.00</td></tr>';
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = renderCart(cartLineItem.id);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual.outerHTML, expected);
 });
