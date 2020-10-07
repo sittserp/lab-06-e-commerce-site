@@ -1,6 +1,8 @@
 import { cartItems } from './cart-items.js';
 import { renderCart, calcOrderTotal } from '../utils.js';
 
+const CART = 'CART';
+
 const cartTable = document.getElementById('cart-body');
 
 for (let i = 0; i < cartItems.length; i++) {
@@ -22,6 +24,12 @@ if (totalPrice === 0) {
     orderButton.disabled = true;
 } else {
     orderButton.disabled = false;
-
 }
+
+orderButton.addEventListener('click', () => {
+    const cartAsAString = JSON.stringify(cartItems, true, 2);
+    alert(cartAsAString);
+    localStorage.removeItem(CART);
+    window.location.replace('/');
+});
 
