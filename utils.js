@@ -9,6 +9,7 @@ export function renderBakery(bakedItem) {
     const description = document.createElement('p');
     const price = document.createElement('p');
     const button = document.createElement('button');
+    const number = document.createElement('input');
 
     li.id = bakedItem.id;
     name.classList.add('name');
@@ -18,6 +19,7 @@ export function renderBakery(bakedItem) {
     description.textContent = bakedItem.description;
     price.classList.add('price');
     price.textContent = `$${bakedItem.price.toFixed(2)}`;
+    number.type = 'number';
     button.textContent = 'Add to Cart';
     button.value = bakedItem.id;
     button.addEventListener('click', () => {
@@ -26,11 +28,11 @@ export function renderBakery(bakedItem) {
         if (item === undefined) 
         { const newItem = {
             id: button.value,
-            quantity: 1
+            quantity: number.value
         };
         cart.push(newItem);
         } else {
-            item.quantity ++;
+            item.quantity = Number(item.quantity) + Number(number.value);
         }
         setInLocalStorage(CART, cart);
         
@@ -40,6 +42,7 @@ export function renderBakery(bakedItem) {
     li.appendChild(img);
     li.appendChild(description);
     li.appendChild(price);
+    li.appendChild(number);
     li.appendChild(button);
 
     return li;
