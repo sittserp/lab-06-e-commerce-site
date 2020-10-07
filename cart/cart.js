@@ -30,6 +30,6 @@ orderButton.addEventListener('click', () => {
     const cartAsAString = JSON.stringify(cartItems, true, 2);
     alert(cartAsAString);
     localStorage.removeItem(CART);
-    window.location.replace('/');
+    window.location.href = '/';
 });
 
