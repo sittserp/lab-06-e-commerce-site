@@ -28,6 +28,18 @@ body {
     background-color: var(--color2);
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-spacing: 2px;
+    padding: 2px;
+}
+
+th {
+    background-color: #c0ded9;
+}
+
+
+
 li img {
  
     margin-left: 45px;
