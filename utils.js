@@ -66,3 +66,20 @@ export function renderCart(someID) {
 
     return tr;
 }
+
+export function calcOrderTotal(cartItems) {
+
+    let accumulator = 0;
+
+    for (let i = 0; i < cartItems.length; i++) {
+        const cartItem = cartItems[i];
+        const bakeryItem = findById(bakery, cartItem.id);
+        const subTotal = bakeryItem.price * cartItem.quantity;
+
+        accumulator = accumulator + subTotal;
+
+    }
+
+    return accumulator;
+}
+
