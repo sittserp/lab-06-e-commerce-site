@@ -16,3 +16,12 @@ const totalPrice = calcOrderTotal(cartItems);
 
 cartTotal.textContent = `Total: $${totalPrice.toFixed(2)}`;
 
+const orderButton = document.getElementById('order-button');
+
+if (totalPrice === 0) {
+    orderButton.disabled = true;
+} else {
+    orderButton.disabled = false;
+
+}
+
