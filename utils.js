@@ -1,5 +1,6 @@
 import { cartItems } from './cart/cart-items.js';
 import { bakery } from './bakery.js';
+export const CART = 'CART';
 
 export function renderBakery(bakedItem) {
     const li = document.createElement('li');
@@ -19,6 +20,21 @@ export function renderBakery(bakedItem) {
     price.textContent = `$${bakedItem.price.toFixed(2)}`;
     button.textContent = 'Add to Cart';
     button.value = bakedItem.id;
+    button.addEventListener('click', () => {
+        const cart = getFromLocalStorage(CART) || [];
+        const item = findById(cart, button.value);
+        if (item === undefined) 
+        { const newItem = {
+            id: button.value,
+            quantity: 1
+        };
+        cart.push(newItem);
+        } else {
+            item.quantity ++;
+        }
+        setInLocalStorage(CART, cart);
+        
+    });
 
     li.appendChild(name);
     li.appendChild(img);
@@ -81,5 +97,15 @@ export function calcOrderTotal(cartItems) {
     }
 
     return accumulator;
+}
+
+export function getFromLocalStorage(key) {
+    const item = localStorage.getItem(key);
+    return JSON.parse(item);
+}
+
+export function setInLocalStorage(key, value) {
+    const stringyItem = JSON.stringify(value);
+    localStorage.setItem(key, stringyItem);
 }
 
