@@ -1,6 +1,7 @@
 import { cartItems } from './cart/cart-items.js';
 import { bakery } from './bakery.js';
 export const CART = 'CART';
+export const PRODUCTS = 'PRODUCTS';
 
 export function renderBakery(bakedItem) {
     const li = document.createElement('li');
@@ -111,5 +112,16 @@ export function getFromLocalStorage(key) {
 export function setInLocalStorage(key, value) {
     const stringyItem = JSON.stringify(value);
     localStorage.setItem(key, stringyItem);
+}
+
+export function getLocalProducts(){
+    let localProducts = getFromLocalStorage(PRODUCTS);
+    if (localProducts === null) {
+
+        setInLocalStorage(PRODUCTS, bakery);
+        localProducts = bakery;
+    }
+
+    return localProducts;
 }
 

@@ -38,6 +38,15 @@ th {
     background-color: #c0ded9;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+}
+input {
+    width: 200px;
+}
 
 
 li img {
