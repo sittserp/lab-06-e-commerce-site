@@ -20,6 +20,7 @@ export function renderBakery(bakedItem) {
     price.classList.add('price');
     price.textContent = `$${bakedItem.price.toFixed(2)}`;
     number.type = 'number';
+    number.defaultValue = 1;
     button.textContent = 'Add to Cart';
     button.value = bakedItem.id;
     button.addEventListener('click', () => {
