@@ -3,6 +3,40 @@ import { bakery } from './bakery.js';
 export const CART = 'CART';
 export const PRODUCTS = 'PRODUCTS';
 
+
+export function getFromLocalStorage(key) {
+    const item = localStorage.getItem(key);
+    return JSON.parse(item);
+}
+
+export function setInLocalStorage(key, value) {
+    const stringyItem = JSON.stringify(value);
+    localStorage.setItem(key, stringyItem);
+}
+
+export function getLocalProducts(){
+    let localProducts = getFromLocalStorage(PRODUCTS);
+    if (localProducts === null) {
+
+        setInLocalStorage(PRODUCTS, bakery);
+        localProducts = bakery;
+    }
+
+    return localProducts;
+}
+
+export function addProduct(newProduct) {
+
+    const localBakery = getLocalProducts();
+
+    localBakery.push(newProduct);
+
+    setInLocalStorage(PRODUCTS, localBakery);
+
+    return localBakery;
+
+}
+
 export function renderBakery(bakedItem) {
     const li = document.createElement('li');
     const name = document.createElement('p');
@@ -66,7 +100,7 @@ export function calcLineItem(price, quantity){
 
 export function renderCart(someID) {
 
-    const cartItem = findById(bakery, someID);
+    const cartItem = findById(getLocalProducts(), someID);
     const cartQuantity = findById(cartItems, someID);
 
     const tr = document.createElement('tr');
@@ -94,7 +128,7 @@ export function calcOrderTotal(cartItems) {
 
     for (let i = 0; i < cartItems.length; i++) {
         const cartItem = cartItems[i];
-        const bakeryItem = findById(bakery, cartItem.id);
+        const bakeryItem = findById(getLocalProducts(), cartItem.id);
         const subTotal = bakeryItem.price * cartItem.quantity;
 
         accumulator = accumulator + subTotal;
@@ -102,26 +136,5 @@ export function calcOrderTotal(cartItems) {
     }
 
     return accumulator;
-}
-
-export function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
-    return JSON.parse(item);
-}
-
-export function setInLocalStorage(key, value) {
-    const stringyItem = JSON.stringify(value);
-    localStorage.setItem(key, stringyItem);
-}
-
-export function getLocalProducts(){
-    let localProducts = getFromLocalStorage(PRODUCTS);
-    if (localProducts === null) {
-
-        setInLocalStorage(PRODUCTS, bakery);
-        localProducts = bakery;
-    }
-
-    return localProducts;
 }
 

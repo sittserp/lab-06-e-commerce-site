@@ -2,6 +2,19 @@ import { PRODUCTS, getLocalProducts, setInLocalStorage } from '../utils.js';
 
 const form = document.querySelector('form');
 
+const priceInput = document.querySelector('#price-input');
+const button = document.querySelector('button');
+
+button.disabled = true;
+priceInput.addEventListener('change', stateHandle);
+function stateHandle() {
+    if (document.querySelector('#price-input').value === '') {
+        button.disabled = true;
+    } else {
+        button.disabled = false;
+    }
+}
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -28,5 +41,9 @@ form.addEventListener('submit', (e) => {
     localBakery.push(newBakedItem);
 
     setInLocalStorage(PRODUCTS, localBakery);
+
+    form.reset();
+
+    button.disabled = true;
 
 });
