@@ -30,6 +30,6 @@ orderButton.addEventListener('click', () => {
     const cartAsAString = JSON.stringify(cartItems, true, 2);
     alert(cartAsAString);
     localStorage.removeItem(CART);
-    window.location.href = 'https://sittserp.github.io/lab-06-e-commerce-site/';
+    window.location.href = '../index.html';
 });
 

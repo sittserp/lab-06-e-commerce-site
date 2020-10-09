@@ -1,11 +1,12 @@
-import { bakery } from '../bakery.js';
-import { renderBakery } from '../utils.js';
+import { renderBakery, getLocalProducts } from '../utils.js';
+
+const localBakery = getLocalProducts();
 
 const ul = document.querySelector('#list');
 
-for (let i = 0; i < bakery.length; i++) {
+for (let i = 0; i < localBakery.length; i++) {
 
-    const bakedItem = bakery[i];
+    const bakedItem = localBakery[i];
 
     const listItem = (renderBakery(bakedItem));
 
